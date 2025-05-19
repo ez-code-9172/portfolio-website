@@ -1,0 +1,108 @@
+.skills-section {
+    padding: 50px 5%;
+    background: #1e1e2f;
+    color: white;
+  
+    .skills-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #4db5ff;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  
+      .skill {
+        text-align: center;
+  
+        .skill-name {
+          font-size: 1rem;
+          margin-bottom: 10px;
+        }
+  
+        .circle-bar {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 6px solid rgba(255, 255, 255, 0.2);
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+  
+          .skill-fill {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip: rect(0, 80px, 80px, 40px);
+            background: conic-gradient(#6a11cb var(--percentage), #2575fc 0);
+            animation: fillAnimation 2s ease-in-out forwards;
+          }
+  
+          .percentage {
+            position: relative;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  
+    .tools-title {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 50px 0 30px;
+      color: #ff8c00;
+    }
+  
+    .tools-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  
+      .tool {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .tool-icon {
+          width: 50px;
+          height: 50px;
+          transition: transform 0.3s;
+  
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+  
+        span {
+          margin-top: 8px;
+          font-size: 1rem;
+        }
+      }
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes fillAnimation {
+      from {
+        --percentage: 0;
+      }
+      to {
+        --percentage: var(--level);
+      }
+    }
+  }
+  

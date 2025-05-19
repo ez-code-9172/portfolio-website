@@ -1,0 +1,73 @@
+/* Default styles (for larger screens) */
+section {
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+body {
+    background-color: #0c0c1d;
+    color: lightgray;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* For large desktops and screens (1440px and above) */
+@media (min-width: 1440px) {
+    section {
+        height: 100vh;
+    }
+}
+
+/* For laptops and small desktops (1024px - 1439px) */
+@media (max-width: 1439px) {
+    section {
+        height: 90vh; /* Adjust section height */
+    }
+}
+
+/* For tablets (768px - 1023px) */
+@media (max-width: 1023px) {
+    section {
+        height: 80vh; /* Smaller height for tablets */
+    }
+
+    body {
+        font-size: 14px; /* Slightly smaller font */
+    }
+}
+
+/* For large phones (481px - 767px) */
+@media (max-width: 767px) {
+    section {
+        height: 70vh; /* Reduce section height */
+    }
+
+    body {
+        font-size: 12px; /* Adjust font size */
+    }
+}
+
+/* For small phones (up to 480px) */
+@media (max-width: 480px) {
+    section {
+        height: 60vh; /* Further reduce height */
+    }
+
+    body {
+        font-size: 10px; /* Smaller font for small screens */
+    }
+
+    a {
+        font-size: 12px; /* Ensure links remain legible */
+    }
+}

@@ -1,0 +1,260 @@
+// Variables
+$font-family: 'Poppins', sans-serif;
+$background-color: #f5f5f5;
+$brand-color: green;
+$gradient-navbar: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+$gradient-circle: linear-gradient(135deg, #6a11cb, #2575fc);
+$hover-color: #2575fc;
+$glow-color: rgba(255, 117, 140, 0.8);
+
+// Global Styles
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+  background: $background-color;
+}
+
+.navbar {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $gradient-navbar;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+
+.circle-menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $gradient-circle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.5s ease;
+
+  .menu {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.menu-box {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+
+  &.open {
+    transform: scaleY(1);
+  }
+
+  a {
+    color: white;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    text-align: center;
+
+    &:hover {
+      background: $hover-color;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.brand-name {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  margin: 0 auto;
+  color: $brand-color;
+}
+
+.resume-link {
+  margin-left: 20px;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  animation: glowing 1.5s infinite, bounce 2s infinite;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.2) rotate(3deg);
+    background-color:white;
+    color: black;
+  }
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 10px $glow-color; }
+  50% { box-shadow: 0 0 30px $glow-color; }
+  100% { box-shadow: 0 0 10px $glow-color; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Responsive Design
+@mixin responsive($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
+
+@include responsive(1200px) {
+  .navbar { padding: 0 3%; }
+}
+
+@include responsive(992px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .circle-menu {
+    width: 35px;
+    height: 35px;
+  }
+
+  .menu-box {
+    left: 5px;
+    width: 200px;
+  }
+
+  .social img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .resume-link {
+    font-size: 0.9rem;
+  }
+}
+
+@include responsive(768px) {
+  .navbar {
+    height: auto;
+    padding: 10px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .circle-menu {
+    top: 5px;
+    left: 5px;
+  }
+}
+
+@include responsive(600px) {
+  .brand-name {
+    font-size: 0.7rem;
+  }
+
+  .resume-link {
+    font-size: 0.3rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .circle-menu {
+    width: 30px;
+    height: 30px;
+  }
+
+  .menu-box {
+    width: 100px;
+  }
+}
+@include responsive(500px) {
+  .brand-name {
+    font-size: 0.4rem;
+  }
+
+  .resume-link {
+    font-size: 1rem;
+    padding: 0.4rem 0.5rem;
+    margin-top: 2px;
+    color:green;
+  }
+
+  .circle-menu {
+    width: 30px;
+    height: 30px;
+  }
+
+  .menu-box {
+    width: 100px;
+  }
+}
+
+@include responsive(400px) {
+  .brand-name {
+    font-size: 0.4rem;
+    
+  }
+
+  .resume-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@include responsive(333px) {
+  .brand-name {
+    font-size: 0.3rem;
+  }
+
+  .resume-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.4rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

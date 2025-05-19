@@ -1,0 +1,206 @@
+.awards-section {
+  padding: 100px 10%;
+  background: linear-gradient(135deg, #121212, #1e1e2f);
+  color: white;
+ height: 600px; /* Ensure dynamic height */
+  // margin-top: 80px; /* Add space between the project and awards sections */
+
+  .awards-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #ff8c00;
+    animation: fadeInDown 1.5s ease-in-out;
+  }
+
+  .awards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+
+    .award-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInUp 1.5s ease-in-out;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 32px rgba(255, 165, 0, 0.8);
+      }
+
+      .award-icon {
+        width: 80px;
+        height: 80px;
+        animation: floatIcon 4s ease-in-out infinite;
+      }
+
+      .award-title {
+        margin-top: 20px;
+        font-size: 1.8rem;
+        background: green;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .award-popup {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 165, 0, 0.95);
+        color: black;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      &.active .award-popup {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(20px);
+      }
+    }
+
+    .iit-card {
+      background: linear-gradient(135deg, #4db5ff, #1e90ff);
+      padding: 50px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 1.5s ease-in-out;
+
+      .iit-icon {
+        width: 100px;
+        height: auto;
+        animation: floatIcon 4s ease-in-out infinite;
+      }
+
+      .iit-title {
+        font-size: 2rem;
+        margin-top: 20px;
+        color: white;
+      }
+
+      .iit-description {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: white;
+      }
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes floatIcon {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+  @media (max-width: 1272px) {
+    padding: 30px 5%;
+    height: auto;
+
+    .award-card {
+      padding: 30px 15px;
+      margin-bottom: 20px; // Prevents overlap
+    }
+
+    .iit-card {
+      padding: 40px 15px;
+      margin-bottom: 20px; // Prevents overlap
+    }
+  }
+
+
+
+  // Media Queries
+
+  @media (max-width: 1024px) {
+    padding: 30px 5%;
+    height: auto;
+
+    .award-card {
+      padding: 30px 15px;
+      margin-bottom: 20px; // Prevents overlap
+    }
+
+    .iit-card {
+      padding: 40px 15px;
+      margin-bottom: 20px; // Prevents overlap
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 5%;
+    height: auto;
+
+    .awards-title {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .award-card {
+      padding: 25px 10px;
+      margin-bottom: 30px; // Ensures space between awards and other sections
+    }
+
+    .iit-card {
+      padding: 35px 10px;
+      margin-bottom: 30px; // Prevents overlap
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 5%;
+
+    .awards-title {
+      font-size: 2rem;
+    }
+
+    .award-card {
+      padding: 20px;
+      margin-bottom: 40px; // Ensures space between sections
+    }
+
+    .iit-card {
+      padding: 30px;
+      margin-bottom: 40px; // Prevents overlap
+    }
+  }
+}

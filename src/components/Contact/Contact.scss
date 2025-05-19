@@ -1,0 +1,190 @@
+.contact-section {
+  padding: 30px 10% ; // Reduced padding for better spacing
+  background: linear-gradient(135deg, #121212, #1e1e2f);
+  color: white;
+  height: 600px;
+
+  .contact-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4db5ff;
+    animation: fadeInDown 1.5s ease-in-out;
+  }
+
+  .contact-container {
+    display: flex;
+    justify-content: center; // Centered the form
+    align-items: center;
+    gap: 20px; // Reduced gap
+
+    .contact-form {
+      width: 50%; // Centered form with defined width
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+
+      .input-group {
+        position: relative;
+
+        input, textarea {
+          width: 100%;
+          padding: 15px 50px; // Space for icons
+          border: none;
+          border-radius: 12px;
+          font-size: 1rem;
+          background: rgba(0, 0, 0, 0.3);
+          color: white;
+          outline: none;
+          transition: box-shadow 0.3s ease;
+
+          &:focus {
+            box-shadow: 0 0 20px rgba(77, 181, 255, 0.8);
+          }
+        }
+
+        textarea {
+          height: 100px;
+          resize: none;
+        }
+
+        .input-icon {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 1.5rem;
+          color: #4db5ff;
+          animation: pulseIcon 2s infinite ease-in-out;
+        }
+      }
+
+      .submit-btn {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        color: white;
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(77, 181, 255, 0.8);
+        }
+      }
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .social-icon {
+        display: inline-block;
+        padding: 15px 35px;
+        font-size: 1.3rem;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+        &.linkedin {
+          background: #0a66c2;
+
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(10, 102, 194, 0.8);
+          }
+        }
+
+        &.telegram {
+          background: #0088cc;
+
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseIcon {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      transform: translateY(-60%) scale(1.2);
+    }
+  }
+
+  // Media Queries
+  @media (max-width: 1024px) {
+    .contact-container {
+      flex-direction: column;
+      .contact-form {
+        width: 70%;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-title {
+      font-size: 2.5rem;
+    }
+
+    .contact-container {
+      .contact-form {
+        width: 90%;
+      }
+
+      .social-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: auto;
+    padding: 20px 5% 40px;
+
+    .contact-title {
+      font-size: 2rem;
+    }
+
+    .contact-container {
+      .contact-form {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.footer-note {
+  display: flex;
+  align-items: center;
+  
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  height: 100px;
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  // Large screens (1440px and above)
+  @media (min-width: 1440px) {
+    margin-left: 650px;
+  }
+
+  // Laptops and tablets (1024px - 1439px)
+  @media (max-width: 1439px) {
+    margin-left: 0; // Center align on smaller screens
+    font-size: 1rem;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  // Tablets and large phones (768px - 1023px)
+  @media (max-width: 1023px) {
+    flex-direction: column; // Stack vertically
+    text-align: center;
+    margin-left: 0;
+    font-size: 0.9rem;
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  // Small phones (up to 767px)
+  @media (max-width: 767px) {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0;
+    font-size: 0.8rem;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
